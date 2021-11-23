@@ -13,7 +13,7 @@
     "tsc": "tsc  -p .",
     "clean": "rimraf dist/*",
     "build": "yarn clean && yarn tsc",
-    "lint": "eslint ."
+    "lint": "eslint --ext .js,.ts,.json ."
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -25,6 +25,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-winston": "^4.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "multer": "^1.4.3",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
@@ -48,5 +50,16 @@
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "tsconfig-paths": "^3.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
