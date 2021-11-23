@@ -1,6 +1,6 @@
 import { ExpressErrorMiddlewareInterface, Middleware } from 'routing-controllers';
 import { Request, Response } from 'express';
-import AppErrorWrapper, {WrappableError} from "@errors/AppErrorWrapper";
+import AppErrorWrapper, { WrappableError } from '@errors/AppErrorWrapper';
 
 @Middleware({ type: 'after' })
 export default class CustomErrorHandler implements ExpressErrorMiddlewareInterface {
