@@ -1,10 +1,10 @@
-import {useExpressServer} from 'routing-controllers';
-import express, {Application} from "express";
-import compression from "compression";
-import {HelloWorldController} from "@controllers/HelloWorldController";
-import RestfulInterceptor from "@server/RestfulInterceptor";
-import CustomErrorHandler from "@server/CustomErrorHandler ";
-import appWinston from "@server/appWinston";
+import { useExpressServer } from 'routing-controllers';
+import express, { Application } from 'express';
+import compression from 'compression';
+import { HelloWorldController } from '@controllers/HelloWorldController';
+import RestfulInterceptor from '@server/RestfulInterceptor';
+import CustomErrorHandler from '@server/CustomErrorHandler ';
+import appWinston from '@server/appWinston';
 
 const server: Application = express();
 server.use(appWinston());
@@ -20,10 +20,9 @@ useExpressServer(server, {
     validation: true,
     defaults: {
         paramOptions: {
-            required: true
-        }
-    }
+            required: true,
+        },
+    },
 });
 
-
-export default server
+export default server;
