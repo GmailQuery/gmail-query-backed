@@ -1,46 +1,34 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "outDir": "./dist",
-    "module": "commonjs",
-    "target": "es6",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "sourceMap": true,
-    "importHelpers": true,
-    "paths": {
-      "@config/*": ["config/*"],
-      "@controllers/*": ["controllers/*"],
-      "@errors/*": ["errors/*"],
-      "@server/*": ["server/*"],
+    "compileOnSave": false,
+    "compilerOptions": {
+        "outDir": "./dist",
+        "module": "commonjs",
+        "target": "es6",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "importHelpers": true,
+        "paths": {
+            "@config/*": ["config/*"],
+            "@controllers/*": ["controllers/*"],
+            "@errors/*": ["errors/*"],
+            "@server/*": ["server/*"]
+        },
+        //
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "src",
+        "declaration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["es2017", "esnext.asynciterable"],
+        "noEmit": false,
+        "pretty": true,
+        "resolveJsonModule": true,
+        "typeRoots": ["node_modules/@types"]
     },
-    //
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "esnext.asynciterable"
-    ],
-    "noEmit": false,
-    "pretty": true,
-    "resolveJsonModule": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.json",
-    ".env"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+    "exclude": ["node_modules", "dist"]
 }

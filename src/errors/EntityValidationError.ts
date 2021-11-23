@@ -24,7 +24,7 @@ export default class EntityValidationError extends HttpError {
 
     get errors() {
         const errors: NormalizedValidationError = {};
-        this.validationErrors.forEach(validationError => {
+        this.validationErrors.forEach((validationError) => {
             const field = validationError.property;
             errors[field] = [];
             Object.entries(validationError.constraints).forEach(([type, message]) => {
