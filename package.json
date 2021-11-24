@@ -13,7 +13,11 @@
     "tsc": "tsc  -p .",
     "clean": "rimraf dist/*",
     "build": "yarn clean && yarn tsc",
-    "lint": "eslint --ext .js,.ts,.json ."
+    "lint": "eslint --ext .js,.ts,.json .",
+    "docker:compose": "docker-compose --env-file .env --file ./docker/docker-compose.yml",
+    "docker:start": "yarn docker:compose up",
+    "docker:restart": "yarn docker:compose restart",
+    "docker:stop": "yarn docker:compose stop"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -23,6 +27,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
+    "dotenv-expand": "^5.1.0",
     "express": "^4.17.1",
     "express-winston": "^4.2.0",
     "husky": "^7.0.4",
