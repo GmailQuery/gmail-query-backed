@@ -11,4 +11,12 @@ export default {
         synchronize: env.asBoolean(process.env.DATABASE_SYNC),
         logging: env.asBoolean(process.env.DATABASE_LOGGING),
     },
+    google: {
+        clientId: env.asString(process.env.GOOGLE_CLIENT_ID),
+        clientSecret: env.asString(process.env.GOOGLE_CLIENT_SECRET),
+        redirectUri: env.asString(process.env.GOOGLE_REDIRECT_URI),
+    },
+    auth: {
+        userJwtSecret: env.asString(process.env.USER_JWT_SECRET),
+    },
 };

@@ -38,15 +38,15 @@ export class AppEntity extends BaseEntity {
     @Exclude()
     deleted: Date;
 
-    static async upsertOne<T extends BaseEntity>(partial: DeepPartial<T>, keys: string[]): Promise<T> {
-        const { generatedMaps } = await this.upsert(partial, keys);
+    static async upsertOne<T extends AppEntity>(partial: DeepPartial<T>, keys: (keyof T)[]): Promise<T> {
+        const { generatedMaps } = await this.upsert(partial, keys as string[]);
         const { id } = generatedMaps[0];
 
-        return this.findOne<T>(id);
+        return this.findOne(id);
     }
 
-    static async upsertMany<T extends BaseEntity>(partials: DeepPartial<T>[], keys: string[]): Promise<T[]> {
-        const { generatedMaps } = await this.upsert(partials, keys);
+    static async upsertMany<T extends AppEntity>(partials: DeepPartial<T>[], keys: string[]): Promise<T[]> {
+        const { generatedMaps } = await this.upsert<T>(partials, keys);
 
         const ids = generatedMaps.map<string>(generated => generated.id);
 
