@@ -1,17 +1,17 @@
 import { useExpressServer } from 'routing-controllers';
 import express, { Application } from 'express';
 import compression from 'compression';
-import { HelloWorldController } from '@controllers/HelloWorldController';
 import RestfulInterceptor from '@server/RestfulInterceptor';
 import CustomErrorHandler from '@server/CustomErrorHandler ';
 import appWinston from '@server/appWinston';
+import { GoogleAuthController } from '@controllers/GoogleAuthController';
 
 const server: Application = express();
 server.use(appWinston());
 server.use(compression());
 useExpressServer(server, {
     development: true,
-    controllers: [HelloWorldController],
+    controllers: [GoogleAuthController],
     interceptors: [RestfulInterceptor],
     defaultErrorHandler: false,
     middlewares: [CustomErrorHandler],

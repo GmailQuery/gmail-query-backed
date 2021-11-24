@@ -15,7 +15,8 @@
             "@controllers/*": ["controllers/*"],
             "@database/*": ["database/*"],
             "@errors/*": ["errors/*"],
-            "@server/*": ["server/*"]
+            "@server/*": ["server/*"],
+            "@services/*": ["services/*"]
         },
         //
         "allowJs": true,
