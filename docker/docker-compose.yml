@@ -1,0 +1,35 @@
+version: '2'
+services:
+  node:
+    container_name: ${APP_PREFIX}-node
+    image: node:16.8-alpine3.14
+    command: yarn dev
+    working_dir: /app
+    volumes:
+      - ../:/app
+    ports:
+      - ${NODE_PORT}:${PORT}
+    links:
+      - mysql
+      - redis
+  mysql:
+    container_name: ${APP_PREFIX}-mariadb
+    image: mariadb:10.4
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      - MYSQL_ROOT_PASSWORD=${APP_PREFIX}
+      - MYSQL_USER=${APP_PREFIX}
+      - MYSQL_PASSWORD=${APP_PREFIX}
+      - MYSQL_DATABASE=${APP_PREFIX}
+    volumes:
+      - ./data/mysql:/var/lib/mysql:delegated
+    ports:
+      - ${MYSQL_PORT}:3306
+  redis:
+    container_name: ${APP_PREFIX}-redis
+    image: redis:alpine
+    command: redis-server --requirepass ${APP_PREFIX}
+    ports:
+      - ${REDIS_PORT}:6379
+    volumes:
+      - ./data/redis:/var/lib/redis:delegated

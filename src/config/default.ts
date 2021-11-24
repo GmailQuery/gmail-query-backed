@@ -1,5 +1,8 @@
+import '@config/env';
+
 export default {
     node: {
-        port: Number(process.env.NODE_PORT),
+        baseUrl: String(process.env.BASE_URL),
+        port: Number(process.env.PORT),
     },
 };
