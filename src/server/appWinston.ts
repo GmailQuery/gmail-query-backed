@@ -1,9 +1,10 @@
 import winston, { LoggerOptions } from 'winston';
 import expressWinston from 'express-winston';
 import { Request, Response } from 'express';
+import { UserEntity } from '@database/entities/UserEntity';
 
-interface CustomRequest extends Request {
-    user: any;
+interface RequestWithUser extends Request {
+    user?: UserEntity;
 }
 
 const options: LoggerOptions = {
@@ -16,8 +17,8 @@ const appWinston = () =>
     expressWinston.logger({
         winstonInstance: logger,
         colorize: true,
-        msg: (req: CustomRequest, res: Response) => {
-            const user = req.user || 'guest';
+        msg: (req: RequestWithUser, res: Response) => {
+            const user = req.user ? req.user.role : 'guest';
             return [
                 new Date().toISOString(),
                 user,
